@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.rizalzaenal.jsonplaceholder.databinding.ItemPostBinding
 import com.rizalzaenal.jsonplaceholder.ui.BasicAdapter
+import com.rizalzaenal.jsonplaceholder.ui.screen.allpost.state.PostItemUiState
 
 class AllPostAdapter(private val onItemClick: (PostItemUiState) -> Unit) :
     BasicAdapter<PostItemUiState, ItemPostBinding>() {

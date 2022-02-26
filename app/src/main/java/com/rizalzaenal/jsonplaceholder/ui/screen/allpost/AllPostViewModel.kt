@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rizalzaenal.jsonplaceholder.data.replaceNull
 import com.rizalzaenal.jsonplaceholder.data.repository.UserRepository
+import com.rizalzaenal.jsonplaceholder.ui.screen.allpost.state.PostItemUiState
+import com.rizalzaenal.jsonplaceholder.ui.screen.allpost.state.PostUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,10 +26,12 @@ class AllPostViewModel @Inject constructor(private val userRepository: UserRepos
                 userWithPosts.forEach { mapItem ->
                     mapItem.value.forEach { postItem ->
                         val data = PostItemUiState(
+                            name = mapItem.key.name.replaceNull(),
                             username = mapItem.key.username.replaceNull(),
                             companyName = mapItem.key.company?.name.replaceNull(),
                             postTitle = postItem.title.replaceNull(),
-                            postBody = postItem.body.replaceNull()
+                            postBody = postItem.body.replaceNull(),
+                            postId = postItem.id.replaceNull()
                         )
                         allPosts.add(data)
                     }

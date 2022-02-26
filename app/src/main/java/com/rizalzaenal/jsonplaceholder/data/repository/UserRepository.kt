@@ -1,10 +1,11 @@
 package com.rizalzaenal.jsonplaceholder.data.repository
 
-import com.rizalzaenal.jsonplaceholder.data.model.PostItem
-import com.rizalzaenal.jsonplaceholder.data.model.UserItem
+import com.rizalzaenal.jsonplaceholder.data.model.Comment
+import com.rizalzaenal.jsonplaceholder.data.model.Post
+import com.rizalzaenal.jsonplaceholder.data.model.User
 
 interface UserRepository {
-    suspend fun getUsers(): List<UserItem>
-    suspend fun getPostByUser(userId: Int): List<PostItem>
-    suspend fun getUserWithPost(): Map<UserItem, List<PostItem>>
+    suspend fun getUsers(): List<User>
+    suspend fun getPostByUser(userId: Int): List<Post>
+    suspend fun getUserWithPost(): Map<User, List<Post>>
 }

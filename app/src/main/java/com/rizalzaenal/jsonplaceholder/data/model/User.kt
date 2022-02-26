@@ -3,7 +3,7 @@ package com.rizalzaenal.jsonplaceholder.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class UserItem(
+data class User(
     @SerializedName("address")
     val address: Address?,
     @SerializedName("company")

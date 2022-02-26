@@ -3,13 +3,15 @@ package com.rizalzaenal.jsonplaceholder.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class PostItem(
+data class Comment(
     @SerializedName("body")
     val body: String?,
+    @SerializedName("email")
+    val email: String?,
     @SerializedName("id")
     val id: Int?,
-    @SerializedName("title")
-    val title: String?,
-    @SerializedName("userId")
-    val userId: Int?
+    @SerializedName("name")
+    val name: String?,
+    @SerializedName("postId")
+    val postId: Int?
 )

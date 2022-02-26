@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Json Placeholder App</string>
+    <string name="username_parenthesis">(%s)</string>
 </resources>
