@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/allPostFragment"
         android:name="com.rizalzaenal.jsonplaceholder.ui.screen.allpost.AllPostFragment"
-        android:label="AllPostFragment"
+        android:label="All Post"
         tools:layout="@layout/fragment_all_post">
         <action
             android:id="@+id/action_allPostFragment_to_PostDetailFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/postDetailFragment"
         android:name="com.rizalzaenal.jsonplaceholder.ui.screen.postdetail.PostDetailFragment"
-        android:label="PostDetailFragment"
+        android:label="Post Detail"
         tools:layout="@layout/fragment_post_detail">
         <argument
             android:name="postDetailUiState"
