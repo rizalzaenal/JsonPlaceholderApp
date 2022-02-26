@@ -64,12 +64,6 @@ class PostDetailFragment: BaseFragment<FragmentPostDetailBinding>() {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = CommentAdapter()
-//            addItemDecoration(
-//                MaterialDividerItemDecoration(
-//                    context,
-//                    MaterialDividerItemDecoration.VERTICAL
-//                )
-//            )
         }
     }
 
