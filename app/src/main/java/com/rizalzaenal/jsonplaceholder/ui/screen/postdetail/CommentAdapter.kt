@@ -14,7 +14,7 @@ class CommentAdapter: BasicAdapter<CommentItemUiState, ItemCommentBinding>() {
 
     override fun bind(data: CommentItemUiState, binding: ItemCommentBinding) {
         binding.apply {
-            tvCommentBody.text = tvCommentBody.context.getString(R.string.comment_quote, data.comment)
+            tvCommentBody.text = tvCommentBody.context.getString(R.string.with_quote, data.comment)
             tvName.text = data.name
         }
     }

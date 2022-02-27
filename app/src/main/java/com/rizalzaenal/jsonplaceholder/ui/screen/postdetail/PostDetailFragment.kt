@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rizalzaenal.jsonplaceholder.R
@@ -18,7 +19,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PostDetailFragment: BaseFragment<FragmentPostDetailBinding>() {
+class PostDetailFragment : BaseFragment<FragmentPostDetailBinding>() {
     private val viewModel: PostDetailViewModel by viewModels()
     private val args: PostDetailFragmentArgs by navArgs()
 
@@ -37,10 +38,15 @@ class PostDetailFragment: BaseFragment<FragmentPostDetailBinding>() {
         binding.apply {
             tvTitle.text = args.postDetailUiState.postTitle
             tvName.text = args.postDetailUiState.name
-            tvUsername.text = getString(R.string.username_parenthesis, args.postDetailUiState.userName)
+            tvUsername.text =
+                getString(R.string.with_parenthesis, args.postDetailUiState.userName)
             tvBody.text = args.postDetailUiState.postBody
+            tvName.setOnClickListener {
+                val direction = PostDetailFragmentDirections
+                    .actionPostDetailFragmentToUserDetailFragment(args.postDetailUiState.userId)
+                findNavController().navigate(direction)
+            }
         }
-
     }
 
     override fun collectStates() {
@@ -48,7 +54,8 @@ class PostDetailFragment: BaseFragment<FragmentPostDetailBinding>() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.commentUiState
                     .collectLatest {
-                        binding.progressBar.visibility = if (it.isLoading) View.VISIBLE else View.GONE
+                        binding.progressBar.visibility =
+                            if (it.isLoading) View.VISIBLE else View.GONE
                         (binding.rvComments.adapter as? CommentAdapter)?.setItems(it.comments)
                         if (it.errorMessage.isNotEmpty()) {
                             Toast.makeText(requireContext(), it.errorMessage, Toast.LENGTH_SHORT)

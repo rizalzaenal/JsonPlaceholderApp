@@ -31,7 +31,8 @@ class AllPostViewModel @Inject constructor(private val userRepository: UserRepos
                             companyName = mapItem.key.company?.name.replaceNull(),
                             postTitle = postItem.title.replaceNull(),
                             postBody = postItem.body.replaceNull(),
-                            postId = postItem.id.replaceNull()
+                            postId = postItem.id.replaceNull(),
+                            userId = mapItem.key.id.replaceNull()
                         )
                         allPosts.add(data)
                     }

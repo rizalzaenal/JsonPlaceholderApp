@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class PostDetailItemUiState(
     val postId: Int = 0,
+    val userId: Int = 0,
     val name: String = "",
     val userName: String = "",
     val postTitle: String = "",

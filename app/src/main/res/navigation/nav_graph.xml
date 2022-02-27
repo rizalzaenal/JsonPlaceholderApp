@@ -23,5 +23,17 @@
         <argument
             android:name="postDetailUiState"
             app:argType="com.rizalzaenal.jsonplaceholder.ui.screen.postdetail.state.PostDetailItemUiState" />
+        <action
+            android:id="@+id/action_postDetailFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.rizalzaenal.jsonplaceholder.ui.screen.userdetail.UserDetailFragment"
+        android:label="User Detail"
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
     </fragment>
 </navigation>

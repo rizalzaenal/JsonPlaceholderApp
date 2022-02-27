@@ -4,10 +4,7 @@ import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.rizalzaenal.jsonplaceholder.BuildConfig
 import com.rizalzaenal.jsonplaceholder.data.remote.JsonPlaceHolderService
-import com.rizalzaenal.jsonplaceholder.data.repository.PostRepository
-import com.rizalzaenal.jsonplaceholder.data.repository.PostRepositoryImpl
-import com.rizalzaenal.jsonplaceholder.data.repository.UserRepository
-import com.rizalzaenal.jsonplaceholder.data.repository.UserRepositoryImpl
+import com.rizalzaenal.jsonplaceholder.data.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -66,5 +63,10 @@ class DataModule {
     @Provides
     fun providePostRepository(service: JsonPlaceHolderService): PostRepository {
         return PostRepositoryImpl(service)
+    }
+
+    @Provides
+    fun provideAlbumRepository(service: JsonPlaceHolderService): AlbumRepository {
+        return AlbumRepositoryImpl(service)
     }
 }

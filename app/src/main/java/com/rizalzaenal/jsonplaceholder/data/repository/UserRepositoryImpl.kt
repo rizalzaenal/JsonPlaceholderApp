@@ -12,6 +12,10 @@ class UserRepositoryImpl (private val service: JsonPlaceHolderService) :
         return service.getUsers()
     }
 
+    override suspend fun getUserDetail(userId: Int): User {
+        return service.getUserDetail(userId)
+    }
+
     override suspend fun getPostByUser(userId: Int): List<Post> {
         return service.getPostsByUser(userId)
     }

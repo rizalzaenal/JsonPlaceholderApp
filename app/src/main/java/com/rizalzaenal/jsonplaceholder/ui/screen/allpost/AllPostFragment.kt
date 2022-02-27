@@ -76,6 +76,7 @@ class AllPostFragment : BaseFragment<FragmentAllPostBinding>() {
     private fun getPostDetailUiState(data: PostItemUiState): PostDetailItemUiState {
         return PostDetailItemUiState(
             postId = data.postId,
+            userId = data.userId,
             name = data.name,
             userName = data.username,
             postTitle = data.postTitle,
