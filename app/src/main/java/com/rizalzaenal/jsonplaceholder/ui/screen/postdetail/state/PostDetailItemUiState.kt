@@ -1,7 +1,7 @@
 package com.rizalzaenal.jsonplaceholder.ui.screen.postdetail.state
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PostDetailItemUiState(

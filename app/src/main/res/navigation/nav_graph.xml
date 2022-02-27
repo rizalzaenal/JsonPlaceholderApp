@@ -27,6 +27,7 @@
             android:id="@+id/action_postDetailFragment_to_userDetailFragment"
             app:destination="@id/userDetailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/userDetailFragment"
         android:name="com.rizalzaenal.jsonplaceholder.ui.screen.userdetail.UserDetailFragment"
@@ -35,5 +36,18 @@
         <argument
             android:name="userId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_userDetailFragment_to_photoViewFragment"
+            app:destination="@id/photoViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoViewFragment"
+        android:name="com.rizalzaenal.jsonplaceholder.ui.screen.photoview.PhotoViewFragment"
+        android:label="Photo View"
+        tools:layout="@layout/fragment_photo_view">
+        <argument
+            android:name="photoViewUiState"
+            app:argType="com.rizalzaenal.jsonplaceholder.ui.screen.photoview.state.PhotoViewUiState" />
     </fragment>
 </navigation>

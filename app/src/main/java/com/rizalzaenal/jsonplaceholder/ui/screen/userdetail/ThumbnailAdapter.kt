@@ -22,15 +22,15 @@ class ThumbnailAdapter(private val onItemClick: (PhotoItemUiState) -> Unit): Bas
             binding.ivThumbnail.setOnClickListener { onItemClick(data) }
         }
     }
+}
 
-    private fun getGlideUrl(url: String): GlideUrl {
-        /*Fix issue with https://via.placeholder.com when loading image
-        see: https://stackoverflow.com/a/62426188/6857577
-        */
-        return GlideUrl(url, LazyHeaders
-            .Builder()
-            .addHeader("User-Agent", "your-user-agent")
-            .build()
-        )
-    }
+fun getGlideUrl(url: String): GlideUrl {
+    /*Fix issue with https://via.placeholder.com when loading image
+    see: https://stackoverflow.com/a/62426188/6857577
+    */
+    return GlideUrl(url, LazyHeaders
+        .Builder()
+        .addHeader("User-Agent", "your-user-agent")
+        .build()
+    )
 }

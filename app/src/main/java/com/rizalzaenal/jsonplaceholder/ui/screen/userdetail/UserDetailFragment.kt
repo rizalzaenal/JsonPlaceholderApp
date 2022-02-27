@@ -9,11 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rizalzaenal.jsonplaceholder.R
 import com.rizalzaenal.jsonplaceholder.databinding.FragmentUserDetailBinding
 import com.rizalzaenal.jsonplaceholder.ui.base.BaseFragment
+import com.rizalzaenal.jsonplaceholder.ui.screen.photoview.state.PhotoViewUiState
 import com.rizalzaenal.jsonplaceholder.ui.screen.userdetail.state.UserUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -87,7 +89,11 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding>() {
             rvAlbum.layoutManager =
                 LinearLayoutManager(rvAlbum.context, LinearLayoutManager.VERTICAL, false)
             rvAlbum.adapter = AlbumAdapter {
-                Toast.makeText(requireContext(), it.title, Toast.LENGTH_SHORT).show()
+                val direction =
+                    UserDetailFragmentDirections.actionUserDetailFragmentToPhotoViewFragment(
+                        PhotoViewUiState(title = it.title, url = it.url)
+                    )
+                findNavController().navigate(direction)
             }
         }
     }
