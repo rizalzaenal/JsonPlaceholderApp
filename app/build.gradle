@@ -73,4 +73,8 @@ dependencies {
     releaseImplementation 'com.github.chuckerteam.chucker:library-no-op:3.5.2'
 
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:3.2.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 }
